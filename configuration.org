@@ -17,7 +17,6 @@ Implement [[https://github.com/hrs/sensible-defaults.el][sensible-defaults.el (G
 (require 'package)
 (setq package-enable-at-startup nil)
 #+END_SRC
-
 ** Configure package mirrors
 #+BEGIN_SRC emacs-lisp
 (add-to-list 'package-archives
@@ -33,19 +32,19 @@ Implement [[https://github.com/hrs/sensible-defaults.el][sensible-defaults.el (G
 	(package-refresh-contents)
 	(package-install 'use-package))
 #+END_SRC
-*** try
+** try
 #+BEGIN_SRC emacs-lisp
 (use-package try
 	:ensure t)
 #+END_SRC
-*** which-key
+** which-key
 #+BEGIN_SRC emacs-lisp
 (use-package which-key
 	:ensure t 
 	:config
 	(which-key-mode))
 #+END_SRC
-*** magit
+** magit
 #+BEGIN_SRC emacs-lisp
 (use-package magit
         :ensure t
