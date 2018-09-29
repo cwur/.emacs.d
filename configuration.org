@@ -1,0 +1,76 @@
+Emacs Configuration
+Configration is inspired by hrs [[https://github.com/hrs/dotfiles/blob/master/emacs/.emacs.d/configuration.org][configuration.org (GitHub)]] and by cestlaz [[https://cestlaz.github.io/posts/using-emacs-1-setup/][using emacs 1 setup]]
+
+* Sensible defaults
+Implement [[https://github.com/hrs/sensible-defaults.el][sensible-defaults.el (GitHub)]]
+
+* Themes
+
+* MISC
+#+BEGIN_SRC emacs-lisp
+(setq inhibit-startup-message t)
+(tool-bar-mode -1)
+#+END_SRC
+
+* Configure packages
+#+BEGIN_SRC emacs-lisp
+(require 'package)
+(setq package-enable-at-startup nil)
+#+END_SRC
+
+** Configure package mirrors
+#+BEGIN_SRC emacs-lisp
+(add-to-list 'package-archives
+	     '("melpa" . "https://melpa.org/packages/"))
+
+(package-initialize)
+#+END_SRC
+
+** Configure use-package
+#+BEGIN_SRC emacs-lisp
+;; Bootstrap `use-package'
+(unless (package-installed-p 'use-package)
+	(package-refresh-contents)
+	(package-install 'use-package))
+#+END_SRC
+*** try
+#+BEGIN_SRC emacs-lisp
+(use-package try
+	:ensure t)
+#+END_SRC
+*** which-key
+#+BEGIN_SRC emacs-lisp
+(use-package which-key
+	:ensure t 
+	:config
+	(which-key-mode))
+#+END_SRC
+*** magit
+#+BEGIN_SRC emacs-lisp
+(use-package magit
+        :ensure t
+        :bind (("C-x g" . magit-status)))
+#+END_SRC
+* org-mode
+Configration ist based upon [[https://cestlaz-nikola.github.io/posts/using-emacs-2-org/][using emacs 2 org]]
+#+BEGIN_SRC emacs-lisp
+;; configs for org-mode (https://cestlaz-nikola.github.io/posts/using-emacs-2-org/)
+(use-package org-bullets
+  :ensure t
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages (quote (org-bullets which-key try use-package))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+#+END_SRC
