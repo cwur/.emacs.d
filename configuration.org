@@ -62,6 +62,12 @@ Implement [[https://github.com/hrs/sensible-defaults.el][sensible-defaults.el (G
   (setq org-brain-title-max-length 30)
   (setq org-brain-visualize-one-child-per-line t))
 #+END_SRC
+** htmlize
+This package converts the buffer text and the associated decorations
+to HTML. [[https://github.com/hniksic/emacs-htmlize][github]]
+#+BEGIN_SRC emacs-lisp
+(use-package htmlize :ensure t)
+#+END_SRC
 * org-mode
 Configration ist based upon [[https://cestlaz-nikola.github.io/posts/using-emacs-2-org/][using emacs 2 org]]
 #+BEGIN_SRC emacs-lisp
