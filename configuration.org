@@ -86,8 +86,8 @@ to HTML. [[https://github.com/hniksic/emacs-htmlize][github]]
   :config
   (setq elpy-rpc-python-command "python3")    ;; For elpy
   (setq python-shell-interpreter "python3"))  ;; For interactive shell
-#+END_SRC
-** flycheck
+ #+END_SRC
+*** flycheck
 #+BEGIN_SRC emacs-lisp
 (use-package flycheck
   :ensure t
