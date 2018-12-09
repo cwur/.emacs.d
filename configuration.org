@@ -95,6 +95,13 @@ to HTML. [[https://github.com/hniksic/emacs-htmlize][github]]
   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
   (add-hook 'elpy-mode-hook 'flycheck-mode))
 #+END_SRC
+*** autopep8
+#+BEGIN_SRC emacs-lisp
+(use-package py-autopep8
+  :ensure t
+  :config
+  (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save))
+#+END_SRC
 * org-mode
 Configration ist based upon [[https://cestlaz-nikola.github.io/posts/using-emacs-2-org/][using emacs 2 org]]
 #+BEGIN_SRC emacs-lisp
