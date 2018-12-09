@@ -4,12 +4,14 @@ Configration is inspired by hrs [[https://github.com/hrs/dotfiles/blob/master/em
 * Sensible defaults
 Implement [[https://github.com/hrs/sensible-defaults.el][sensible-defaults.el (GitHub)]]
 
+
 * Themes
 
 * MISC
 #+BEGIN_SRC emacs-lisp
 (setq inhibit-startup-message t)
 (tool-bar-mode -1)
+(global-linum-mode t)
 #+END_SRC
 
 * Configure packages
