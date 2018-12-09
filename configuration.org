@@ -7,7 +7,6 @@ Implement [[https://github.com/hrs/sensible-defaults.el][sensible-defaults.el (G
 * MISC
 #+BEGIN_SRC emacs-lisp
 (setq inhibit-startup-message t)
-(tool-bar-mode -1)
 (global-linum-mode t)
 #+END_SRC
 
@@ -71,7 +70,12 @@ to HTML. [[https://github.com/hniksic/emacs-htmlize][github]]
 #+BEGIN_SRC emacs-lisp
 (use-package material-theme :ensure t)
 #+END_SRC
+** better defaults
+[[https://melpa.org/#/better-defaults][melpa better-defaults]]
 
+#+BEGIN_SRC emacs-lisp
+(use-package better-defaults :ensure t)
+#+END_SRC
 * org-mode
 Configration ist based upon [[https://cestlaz-nikola.github.io/posts/using-emacs-2-org/][using emacs 2 org]]
 #+BEGIN_SRC emacs-lisp
