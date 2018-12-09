@@ -8,6 +8,7 @@ Implement [[https://github.com/hrs/sensible-defaults.el][sensible-defaults.el (G
 #+BEGIN_SRC emacs-lisp
 (setq inhibit-startup-message t)
 (global-linum-mode t)
+(add-to-list 'initial-frame-alist '(fullscreen . maximized))
 #+END_SRC
 
 * Configure packages
