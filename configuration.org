@@ -76,6 +76,10 @@ to HTML. [[https://github.com/hniksic/emacs-htmlize][github]]
 #+BEGIN_SRC emacs-lisp
 (use-package better-defaults :ensure t)
 #+END_SRC
+** elpy
+#+BEGIN_SRC emacs-lisp
+(use-package elpy :ensure t)
+#+END_SRC
 * org-mode
 Configration ist based upon [[https://cestlaz-nikola.github.io/posts/using-emacs-2-org/][using emacs 2 org]]
 #+BEGIN_SRC emacs-lisp
