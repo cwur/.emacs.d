@@ -79,8 +79,13 @@ to HTML. [[https://github.com/hniksic/emacs-htmlize][github]]
 #+END_SRC
 ** elpy
 #+BEGIN_SRC emacs-lisp
-(use-package elpy :ensure t)
+(use-package elpy 
+  :ensure t
+  :config
+  (setq elpy-rpc-python-command "python3")    ;; For elpy
+  (setq python-shell-interpreter "python3"))  ;; For interactive shell
 #+END_SRC
+
 * org-mode
 Configration ist based upon [[https://cestlaz-nikola.github.io/posts/using-emacs-2-org/][using emacs 2 org]]
 #+BEGIN_SRC emacs-lisp
