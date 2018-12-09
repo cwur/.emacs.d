@@ -102,6 +102,15 @@ to HTML. [[https://github.com/hniksic/emacs-htmlize][github]]
   :config
   (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save))
 #+END_SRC
+** auto-minor-mode
+#+BEGIN_SRC emacs-lisp
+(use-package auto-minor-mode
+  :ensure t
+  :config
+  (add-to-list 'auto-minor-mode-alist '("\\.py\\'" . elpy-mode)))
+
+  (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
+#+END_SRC
 * org-mode
 Configration ist based upon [[https://cestlaz-nikola.github.io/posts/using-emacs-2-org/][using emacs 2 org]]
 #+BEGIN_SRC emacs-lisp
