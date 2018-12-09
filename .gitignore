@@ -4,3 +4,4 @@ auto-save-list
 session.*
 /.org-id-locations
 /configuration.el
+backups
