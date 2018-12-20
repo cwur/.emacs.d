@@ -145,3 +145,26 @@ Easy templates for emacs-lisp and python.
 (add-to-list 'org-structure-template-alist '("el" "#+BEGIN_SRC emacs-lisp ? \n#+END_SRC"))
 (add-to-list 'org-structure-template-alist '("py" "#+BEGIN_SRC python ? \n#+END_SRC"))
 #+END_SRC
+
+Using org-capture to prepare snippets.
+#+BEGIN_SRC emacs-lisp 
+(define-key global-map "\C-cc" 'org-capture)
+(setq org-default-notes-file "~/Life/org/org.org")
+(setq org-capture-templates
+ '(("t" "Todo" entry (file+headline "~/Life/org/org.org" "INBOX")
+        "* TODO %?\n  %i\n  %a")
+   ("j" "Journal" entry (file+olp+datetree "~/Life/org/org.org" "Journal")
+        "* %?\nEntered on %U\n  %i\n  %a")
+   ("h" "How am I?" entry (file+olp+datetree "~/Life/org/org.org" "Journal")
+        "* How am I?
+*3 things I am grateful for..* \n
+*What would make today great?* \n
+*Daily affirmations. I am...* \n
+*3 Amazing things that happended yesterday and why did they happened...* \n
+*How could I have made yesterday, better?* \n
+*When did I feel happy yesterday?* \n
+*What can I do today to reach my longterm goals?* \n
+*What else is on my mind?*
+%?\nEntered on %U\n  %i")))
+
+#+END_SRC
