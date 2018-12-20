@@ -6,3 +6,4 @@ session.*
 /configuration.el
 backups
 /ido.last
+/bookmarks
