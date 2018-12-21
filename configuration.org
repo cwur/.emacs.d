@@ -165,6 +165,28 @@ Using org-capture to prepare snippets.
 *When did I feel happy yesterday?* \n
 *What can I do today to reach my longterm goals?* \n
 *What else is on my mind?*
-%?\nEntered on %U\n  %i")))
+%?\nEntered on %U\n  %i")
+   ("P" "grand Project" entry(file+headline "~/Life/org/org.org" "INBOX")
+        "* title :prj:
+** Scope
+*What is this project about?*
+*Why am I doing it?*
+*What would success look like?*
+*Just put some ideas out there*
+** Execution
+*How am I accomplishing this project? What are the steps?*")
+   ("p" "simple Project" entry(file+headline "~/Life/org/org.org" "INBOX")
+        "* title :prj:
+*How am I accomplishing this project? What are the steps?*
+** todo")))
+#+END_SRC
 
+Configuring org-refie
+#+BEGIN_SRC emacs-lisp
+(setq org-refile-targets (quote ((nil :maxlevel . 9))))
+
+; Use full outline paths for refile targets - we file directly with IDO
+(setq org-refile-use-outline-path t)
+; Targets complete directly with IDO
+(setq org-outline-path-complete-in-steps nil) 
 #+END_SRC
