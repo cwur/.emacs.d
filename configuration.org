@@ -199,3 +199,48 @@ Configuring org-refie
 ; Targets complete directly with IDO
 (setq org-outline-path-complete-in-steps nil) 
 #+END_SRC
+
+Org-agenda [[https://blog.aaronbieber.com/2016/09/24/an-agenda-for-life-with-org-mode.html][An Agenda for Life With Org Mode]]
+#+BEGIN_SRC emacs-lisp
+(setq org-agenda-files '("~/Life/org/"))
+(define-key global-map "\C-ca" 'org-agenda)
+(setq org-agenda-custom-commands
+      '(("c" "Simple agenda view"
+         ((tags "PRIORITY=\"A\""
+                ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+                 (org-agenda-overriding-header "High priority unfinished tasks:")))
+          (agenda "")
+          (alltodo ""
+                   ((org-agenda-skip-function
+                     '(or (air-org-skip-subtree-if-priority ?A)
+                          (org-agenda-skip-if nil '(scheduled deadline))))))))))
+
+(defun air-org-skip-subtree-if-priority (priority)
+  "Skip an agenda subtree if it has a priority of PRIORITY.
+
+PRIORITY may be one of the characters ?A, ?B, or ?C."
+  (let ((subtree-end (save-excursion (org-end-of-subtree t)))
+        (pri-value (* 1000 (- org-lowest-priority priority)))
+        (pri-current (org-get-priority (thing-at-point 'line t))))
+    (if (= pri-value pri-current)
+        subtree-end
+      nil)))
+#+END_SRC
+
+Follow link in org using RET.
+#+BEGIN_SRC emacs-lisp
+(setq org-return-follows-link t)
+#+END_SRC
+** org-babel
+- stackoverflow: [[https://stackoverflow.com/questions/18598870/emacs-org-mode-executing-simple-python-code][Emacs Org Mode: Executing simple python code]]
+#+BEGIN_SRC emacs-lisp
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((python . t))) 
+#+END_SRC
+** org-noter [[https://github.com/weirdNox/org-noter/blob/master/org-noter.el][github]]
+#+BEGIN_SRC emacs-lisp
+(use-package org-noter
+  :ensure t
+)
+#+END_SRC
