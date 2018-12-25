@@ -173,17 +173,17 @@ Using org-capture to prepare snippets.
 %?\nEntered on %U\n  %i")
    ("P" "grand Project" entry(file+headline "~/Life/org/org.org" "INBOX")
         "* title :prj:
-** Scope
+\** Scope
 *What is this project about?*
 *Why am I doing it?*
 *What would success look like?*
 *Just put some ideas out there*
-** Execution
+\** Execution
 *How am I accomplishing this project? What are the steps?*")
    ("p" "simple Project" entry(file+headline "~/Life/org/org.org" "INBOX")
         "* title :prj:
 *How am I accomplishing this project? What are the steps?*
-** todo")))
+\** todo")))
 #+END_SRC
 
 Configuring org-refie
