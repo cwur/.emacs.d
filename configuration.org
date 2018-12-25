@@ -7,9 +7,14 @@ Implement [[https://github.com/hrs/sensible-defaults.el][sensible-defaults.el (G
 * MISC
 #+BEGIN_SRC emacs-lisp
 (setq inhibit-startup-message t)
-(global-linum-mode t)
+;;(global-linum-mode t)
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 (global-visual-line-mode t)
+#+END_SRC
+
+Set environment variable, so "pyvenv-workon" knows the path to the virtual environments.
+#+BEGIN_SRC emacs-lisp
+(setenv "WORKON_HOME" "~/code/environments/") 
 #+END_SRC
 
 * Configure packages
