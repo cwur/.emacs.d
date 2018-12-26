@@ -143,14 +143,12 @@ Easy templates for emacs-lisp and python.
 
 Using org-capture to prepare snippets.
 #+BEGIN_SRC emacs-lisp 
-(define-key global-map "\C-cc" 'org-capture)
-(setq org-default-notes-file "~/Life/org/org.org")
+(define-key global-map (kbd "C-+ c") 'org-capture)
+(setq org-default-notes-file custom-variable-main-org-file)
 (setq org-capture-templates
- '(("t" "Todo" entry (file+headline "~/Life/org/org.org" "INBOX")
+ '(("t" "Todo" entry (file+headline custom-variable-main-org-file "INBOX")
         "* TODO %?\n  %i\n  %a")
-   ("j" "Journal" entry (file+olp+datetree "~/Life/org/org.org" "Journal")
-        "* %?\nEntered on %U\n  %i\n  %a")
-   ("h" "How am I?" entry (file+olp+datetree "~/Life/org/org.org" "Journal")
+   ("j" "Journal" entry (file+olp+datetree custom-variable-main-org-file "Journal")
         "* How am I?
 *3 things I am grateful for..* \n
 *What would make today great?* \n
@@ -188,8 +186,8 @@ Configuring org-refie
 
 Org-agenda [[https://blog.aaronbieber.com/2016/09/24/an-agenda-for-life-with-org-mode.html][An Agenda for Life With Org Mode]]
 #+BEGIN_SRC emacs-lisp
-(setq org-agenda-files '("~/Life/org/"))
-(define-key global-map "\C-ca" 'org-agenda)
+(setq org-agenda-files '("~/org/"))
+(define-key global-map (kbd "C-+ a") 'org-agenda)
 (setq org-agenda-custom-commands
       '(("c" "Simple agenda view"
          ((tags "PRIORITY=\"A\""
