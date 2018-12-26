@@ -68,11 +68,12 @@ to HTML. [[https://github.com/hniksic/emacs-htmlize][github]]
 #+BEGIN_SRC emacs-lisp
 (use-package material-theme :ensure t)
 #+END_SRC
-** better defaults
-[[https://melpa.org/#/better-defaults][melpa better-defaults]]
-
+** better defaults [[https://github.com/technomancy/better-defaults/][github]]
 #+BEGIN_SRC emacs-lisp
-(use-package better-defaults :ensure t)
+(use-package better-defaults 
+  :ensure t
+  :config
+  (setq ido-everywhere t))
 #+END_SRC
 ** python
 [[https://realpython.com/emacs-the-best-python-editor/][Emacs – The Best Python Editor?]]
@@ -125,18 +126,6 @@ Configration ist based upon [[https://cestlaz-nikola.github.io/posts/using-emacs
 )
 (load-file "~/code/anki-editor/anki-editor.el")
 
-;;(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- ;; '(package-selected-packages (quote (org-bullets which-key try use-package))))
- ;; (custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
-;; )
 I want my main org-file to open on startup.
 #+BEGIN_SRC emacs-lisp  
 (find-file custom-variable-main-org-file)
