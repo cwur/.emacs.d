@@ -17,6 +17,11 @@ Set environment variable, so "pyvenv-workon" knows the path to the virtual envir
 (setenv "WORKON_HOME" "~/code/environments/") 
 #+END_SRC
 
+Set variable for my main org-file. So it can be used through-out my configuration.
+#+BEGIN_SRC emacs-lisp
+(setq custom-variable-main-org-file "~/org/notes.org")
+#+END_SRC
+
 * Configure packages
 #+BEGIN_SRC emacs-lisp
 (require 'package)
@@ -146,6 +151,10 @@ Configration ist based upon [[https://cestlaz-nikola.github.io/posts/using-emacs
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
 ;; )
+I want my main org-file to open on startup.
+#+BEGIN_SRC emacs-lisp  
+(find-file custom-variable-main-org-file)
+#+END_SRC
 
 #+END_SRC
 
@@ -175,7 +184,7 @@ Using org-capture to prepare snippets.
 *What can I do today to reach my longterm goals?* \n
 *What else is on my mind?*
 %?\nEntered on %U\n  %i")
-   ("P" "grand Project" entry(file+headline "~/Life/org/org.org" "INBOX")
+   ("P" "grand Project" entry(file+headline custom-variable-main-org-file "INBOX")
         "* title :prj:
 \** Scope
 *What is this project about?*
@@ -184,7 +193,7 @@ Using org-capture to prepare snippets.
 *Just put some ideas out there*
 \** Execution
 *How am I accomplishing this project? What are the steps?*")
-   ("p" "simple Project" entry(file+headline "~/Life/org/org.org" "INBOX")
+   ("p" "simple Project" entry(file+headline custom-variable-main-org-file "INBOX")
         "* title :prj:
 *How am I accomplishing this project? What are the steps?*
 \** todo")))
