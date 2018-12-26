@@ -58,20 +58,6 @@ Set variable for my main org-file. So it can be used through-out my configuratio
         :ensure t
         :bind (("C-x g" . magit-status)))
 #+END_SRC
-** org-brain
-[[https://github.com/Kungsgeten/org-brain][org-brain]] implements a variant of concept mapping in Emacs, using
-[[http://orgmode.org/][org-mode]]. Implementation is taken from [[https://github.com/Kungsgeten/org-brain][org-brain]]'s github.
-#+BEGIN_SRC emacs-lisp
-(use-package org-brain :ensure t
-  :init
-  (setq org-brain-path "~/Life/notes")
-  :config
-  (setq org-id-track-globally t)
-  (setq org-id-locations-file "~/.emacs.d/.org-id-locations")
-  (setq org-brain-visualize-default-choices 'all)
-  (setq org-brain-title-max-length 30)
-  (setq org-brain-visualize-one-child-per-line t))
-#+END_SRC
 ** htmlize
 This package converts the buffer text and the associated decorations
 to HTML. [[https://github.com/hniksic/emacs-htmlize][github]]
@@ -253,3 +239,17 @@ Follow link in org using RET.
   :ensure t
 )
 #+END_SRC
+** org-brain
+ [[https://github.com/Kungsgeten/org-brain][org-brain]] implements a variant of concept mapping in Emacs, using
+ [[http://orgmode.org/][org-mode]]. Implementation is taken from [[https://github.com/Kungsgeten/org-brain][org-brain]]'s github.
+ #+BEGIN_SRC emacs-lisp
+ (use-package org-brain :ensure t
+   :init
+   (setq org-brain-path "~/Life/notes")
+   :config
+   (setq org-id-track-globally t)
+   (setq org-id-locations-file "~/.emacs.d/.org-id-locations")
+   (setq org-brain-visualize-default-choices 'all)
+   (setq org-brain-title-max-length 30)
+   (setq org-brain-visualize-one-child-per-line t))
+ #+END_SRC
