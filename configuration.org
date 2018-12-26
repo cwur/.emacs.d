@@ -127,12 +127,23 @@ Configration ist based upon [[https://cestlaz-nikola.github.io/posts/using-emacs
   :ensure t
 )
 (load-file "~/code/anki-editor/anki-editor.el")
+#+END_SRC
 
 I want my main org-file to open on startup.
 #+BEGIN_SRC emacs-lisp  
 (find-file custom-variable-main-org-file)
 #+END_SRC
 
+Remap some keyboard bindings to open files.
+#+BEGIN_SRC emacs-lisp
+(defun custom-find-file-org ()
+  (interactive)
+  (find-file custom-variable-main-org-file))
+(defun custom-find-file-configuration ()
+  (interactive)
+  (find-file "~/.emacs.d/configuration.org"))
+(define-key global-map (kbd "C-+ o") 'custom-find-file-org)
+(define-key global-map (kbd "C-+ i") 'custom-find-file-configuration)
 #+END_SRC
 
 Easy templates for emacs-lisp and python.
