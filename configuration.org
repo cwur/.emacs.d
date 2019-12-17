@@ -66,7 +66,21 @@ to HTML. [[https://github.com/hniksic/emacs-htmlize][github]]
 #+END_SRC
 ** material theme
 #+BEGIN_SRC emacs-lisp
-(use-package material-theme :ensure t)
+;;(use-package material-theme n
+;;  :ensure t
+;;  :config
+;;  (load-theme 'material t))
+#+END_SRC
+#+BEGIN_SRC emacs-lisp 
+(use-package soothe-theme :ensure f)
+#+END_SRC
+#+BEGIN_SRC emacs-lisp
+(use-package kaolin-themes :ensure t
+  :config
+  (load-theme 'kaolin-bubblegum t))
+#+END_SRC
+#+BEGIN_SRC emacs-lisp 
+(use-package zenburn-theme :ensure f) 
 #+END_SRC
 ** better defaults [[https://github.com/technomancy/better-defaults/][github]]
 #+BEGIN_SRC emacs-lisp
@@ -113,8 +127,16 @@ to HTML. [[https://github.com/hniksic/emacs-htmlize][github]]
 (use-package pdf-tools
   :ensure t
   :config
-  (setq org-noter-always-create-frame nil))
+  (pdf-tools-install))
 #+END_SRC
+** ledger
+#+BEGIN_SRC emacs-lisp
+(use-package ledger-mode
+  :ensure t
+  :config
+)
+#+END_SRC
+
 * org-mode
 Configration ist based upon [[https://cestlaz-nikola.github.io/posts/using-emacs-2-org/][using emacs 2 org]]
 #+BEGIN_SRC emacs-lisp
@@ -148,8 +170,8 @@ Remap some keyboard bindings to open files.
 
 Easy templates for emacs-lisp and python.
 #+BEGIN_SRC emacs-lisp 
-(add-to-list 'org-structure-template-alist '("el" "#+BEGIN_SRC emacs-lisp ? \n#+END_SRC"))
-(add-to-list 'org-structure-template-alist '("py" "#+BEGIN_SRC python ? \n#+END_SRC"))
+(add-to-list 'org-structure-template-alist '("el" "emacs-lisp"))
+(add-to-list 'org-structure-template-alist '("py" "python"))
 #+END_SRC
 
 Using org-capture to prepare snippets.
@@ -162,13 +184,12 @@ Using org-capture to prepare snippets.
    ("j" "Journal" entry (file+olp+datetree custom-variable-main-org-file "Journal")
         "* How am I?
 *3 things I am grateful for..* \n
-*What would make today great?* \n
-*Daily affirmations. I am...* \n
-*3 Amazing things that happended yesterday and why did they happened...* \n
-*How could I have made yesterday, better?* \n
-*When did I feel happy yesterday?* \n
-*What can I do today to reach my longterm goals?* \n
-*What else is on my mind?*
+*Where have I been courageous/temperant/just/wise yesterday?* \n
+*Where haven't I been courageous/temperant/just/wise yesterday* \n
+*Where can I be courageous/temperant/just/wise today?* \n
+*What could go wrong today?* \n
+*What else is on my mind?*\n
+*Memento mori?*\n
 %?\nEntered on %U\n  %i")
    ("P" "grand Project" entry(file+headline custom-variable-main-org-file "INBOX")
         "* title :prj:
@@ -237,7 +258,14 @@ Follow link in org using RET.
 #+BEGIN_SRC emacs-lisp
 (use-package org-noter
   :ensure t
-)
+  :config
+  (setq org-noter-always-create-frame nil)
+  (setq org-noter-notes-window-location 'horizontal-split))
+;;  (setq org-noter-notes-search-path '("~/org")))
+;;(setq org-noter-notes-window-behavior '("Vertical"))
+;;org-noter-always-create-frame 
+;;org-noter-notes-window-behavior (start scroll)
+;;org-noter-notes-window-location vertical-split
 #+END_SRC
 ** org-brain
  [[https://github.com/Kungsgeten/org-brain][org-brain]] implements a variant of concept mapping in Emacs, using
@@ -245,7 +273,7 @@ Follow link in org using RET.
  #+BEGIN_SRC emacs-lisp
  (use-package org-brain :ensure t
    :init
-   (setq org-brain-path "~/Life/notes")
+   (setq org-brain-path "~/org/brain")
    :config
    (setq org-id-track-globally t)
    (setq org-id-locations-file "~/.emacs.d/.org-id-locations")
